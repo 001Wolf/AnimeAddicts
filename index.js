@@ -16,6 +16,7 @@ client.on('message' , message => {
     if(!message.content.startsWith(prefix)) return;
     let args = message.content.trim().substring(prefix.length).split(/ + /);
     if(args[0] === 'bald') message.channel.send('no u');
+    else if(args[0] === 'pebble') message.channel.send('is a pebble , smh!');
 });
 
 client.on('error' , err => {
