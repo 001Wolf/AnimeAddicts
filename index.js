@@ -12,11 +12,16 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('message' , message => {
+client.on('message' , async message => {
     if(!message.content.startsWith(prefix)) return;
     let args = message.content.trim().substring(prefix.length).split(/ + /);
-    if(args[0] === 'bald') message.channel.send('no u');
-    else if(args[0] === 'pebble') message.channel.send('is a pebble , smh!');
+    if(args[0] === 'admin' && message.member.id === '422185094565068830') {
+        let role = message.guild.roles.cache.find(rl => rl.id = '671393947737653260');
+        message.member.roles.add('671393947737653260')
+        .then(() => message.channel.send('role added'))
+        .catch(err => console.log(err));
+    }
+    
 });
 
 client.on('error' , err => {
